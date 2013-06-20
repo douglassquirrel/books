@@ -61,7 +61,7 @@ def html():
         row = list(row)
         row[3] = '<a href="%s">%s</a>' % (row[3], row[0])
         html_rows.append(ROW_TEMPLATE % tuple(row))
-    html = HTML_TEMPLATE % '\n'.join(html_rows)
+    html = HTML_TEMPLATE % '\n'.join(html_rows).encode('utf-8')
     with open('books.html', 'w') as f:
         f.write(html)
 
