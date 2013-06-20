@@ -5,6 +5,7 @@ SELECT_SQL = '''
     SELECT title, authors, location, google_link,
        description, publisher, pages, isbn, google_id
     FROM books
+    ORDER BY title ASC
 '''
 HTML_TEMPLATE = '''
 <!doctype HTML>

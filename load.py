@@ -9,12 +9,14 @@ CREATE_SQL = '''
      isbn TEXT, location TEXT, google_id TEXT, title TEXT, authors TEXT,
      publisher TEXT, description TEXT, pages INTEGER, google_link TEXT)
 '''
+INDEX_SQL = 'CREATE UNIQUE INDEX IF NOT EXISTS isbn ON books (isbn)'
 INSERT_SQL = 'INSERT INTO books (isbn, location) VALUES (?, ?)'
 
 def insert():
     connection = connect(DB_FILE)
     cursor = connection.cursor()
     cursor.execute(CREATE_SQL)
+    cursor.execute(INDEX_SQL)
     connection.commit()
 
     csv_file = argv[1]
